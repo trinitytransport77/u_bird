@@ -1,0 +1,18 @@
+const Driver = require("../models/Driver");
+
+exports.updateAvailability = async (req, res) => {
+  const { driverId, isAvailable } = req.body;
+
+  await Driver.findByIdAndUpdate(driverId, { isAvailable });
+  res.json({ message: "Driver availability updated" });
+};
+
+exports.updateLocation = async (req, res) => {
+  const { driverId, lat, lng } = req.body;
+
+  await Driver.findByIdAndUpdate(driverId, {
+    location: { lat, lng }
+  });
+
+  res.json({ message: "Driver location updated" });
+};

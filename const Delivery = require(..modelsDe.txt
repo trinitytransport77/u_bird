@@ -1,0 +1,14 @@
+const Delivery = require("../models/Delivery");
+
+exports.createDelivery = async (req, res) => {
+  const delivery = new Delivery(req.body);
+  await delivery.save();
+  res.json({ message: "Delivery requested", delivery });
+};
+
+exports.updateDeliveryStatus = async (req, res) => {
+  const { deliveryId, status } = req.body;
+
+  await Delivery.findByIdAndUpdate(deliveryId, { status });
+  res.json({ message: "Delivery status updated" });
+};

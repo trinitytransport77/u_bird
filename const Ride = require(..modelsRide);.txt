@@ -1,0 +1,14 @@
+const Ride = require("../models/Ride");
+
+exports.createRide = async (req, res) => {
+  const ride = new Ride(req.body);
+  await ride.save();
+  res.json({ message: "Ride requested", ride });
+};
+
+exports.updateRideStatus = async (req, res) => {
+  const { rideId, status } = req.body;
+
+  await Ride.findByIdAndUpdate(rideId, { status });
+  res.json({ message: "Ride status updated" });
+};
