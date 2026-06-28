@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>U_BIRD Rider App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="header">
+    <h1>U_BIRD</h1>
+    <p>Ride • Delivery</p>
+  </div>
+
+  <div class="mode-switch">
+    <button id="rideMode">Ride</button>
+    <button id="deliveryMode">Delivery</button>
+  </div>
+
+  <div id="rideSection" class="section">
+    <h2>Request a Ride</h2>
+    <input id="pickup" placeholder="Pickup location">
+    <input id="dropoff" placeholder="Dropoff location">
+    <button id="requestRideBtn">Request Ride</button>
+  </div>
+
+  <div id="deliverySection" class="section hidden">
+    <h2>Order Food</h2>
+    <div id="restaurantList"></div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
