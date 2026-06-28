@@ -1,0 +1,35 @@
+[
+  {
+    "id": "rest1",
+    "name": "Sunrise Diner",
+    "category": "Breakfast",
+    "location": { "lat": 42.1015, "lng": -72.5898 },
+    "menu": [
+      { "item": "Pancakes", "price": 7.99 },
+      { "item": "Omelette", "price": 8.49 },
+      { "item": "Coffee", "price": 2.49 }
+    ]
+  },
+  {
+    "id": "rest2",
+    "name": "City Pizza",
+    "category": "Pizza",
+    "location": { "lat": 42.1021, "lng": -72.5902 },
+    "menu": [
+      { "item": "Cheese Pizza", "price": 10.99 },
+      { "item": "Pepperoni Pizza", "price": 12.49 },
+      { "item": "Garlic Bread", "price": 4.99 }
+    ]
+  },
+  {
+    "id": "rest3",
+    "name": "Dragon Wok",
+    "category": "Chinese",
+    "location": { "lat": 42.1009, "lng": -72.5885 },
+    "menu": [
+      { "item": "General Tso Chicken", "price": 11.99 },
+      { "item": "Fried Rice", "price": 8.99 },
+      { "item": "Spring Rolls", "price": 3.99 }
+    ]
+  }
+]
