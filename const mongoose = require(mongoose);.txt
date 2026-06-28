@@ -1,0 +1,23 @@
+const mongoose = require("mongoose");
+
+const DeliverySchema = new mongoose.Schema({
+  customerId: String,
+  driverId: String,
+  restaurant: String,
+  items: Array,
+  pickupLocation: {
+    lat: Number,
+    lng: Number
+  },
+  dropoffLocation: {
+    lat: Number,
+    lng: Number
+  },
+  status: {
+    type: String,
+    default: "requested" // requested, picked_up, on_route, delivered
+  },
+  createdAt: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model("Delivery", DeliverySchema);
