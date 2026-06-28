@@ -1,0 +1,20 @@
+const express = require("express");
+const router = express.Router();
+const Delivery = require("../models/Delivery");
+
+// Create delivery request
+router.post("/request", async (req, res) => {
+  const delivery = new Delivery(req.body);
+  await delivery.save();
+  res.json({ message: "Delivery requested", delivery });
+});
+
+// Update delivery status
+router.post("/status", async (req, res) => {
+  const { deliveryId, status } = req.body;
+
+  await Delivery.findByIdAndUpdate(deliveryId, { status });
+  res.json({ message: "Delivery status updated" });
+});
+
+module.exports = router;
