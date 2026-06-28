@@ -1,0 +1,45 @@
+const WebSocket = require("ws");
+
+let drivers = {}; // store driver locations
+let riders = {};  // store rider requests
+
+function setupWebSocket(server) {
+  const wss = new WebSocket.Server({ noServer: true });
+
+  wss.on("connection", (ws) => {
+    ws.on("message", (msg) => {
+      const data = JSON.parse(msg);
+
+      // Driver location updates
+      if (data.type === "driver_location") {
+        drivers[data.driverId] = data.location;
+        broadcast(wss, { type: "drivers_update", drivers });
+      }
+
+      // Rider requests a ride
+      if (data.type === "ride_request") {
+        riders[data.riderId] = data;
+        broadcast(wss, { type: "new_ride_request", request: data });
+      }
+    });
+  });
+
+  // Upgrade HTTP → WebSocket
+  server.on("upgrade", (req, socket, head) => {
+    wss.handleUpgrade(req, socket, head, (ws) => {
+      wss.emit("connection", ws, req);
+    });
+  });
+
+  console.log("WebSocket server running");
+}
+
+function broadcast(wss, data) {
+  wss.clients.forEach((client) => {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(JSON.stringify(data));
+    }
+  });
+}
+
+module.exports = setupWebSocket;
