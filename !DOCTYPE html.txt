@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>U_BIRD Rider App</title>
+  <title>U_BIRD Driver App</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="header">
-    <h1>U_BIRD</h1>
-    <p>Ride • Delivery</p>
+    <h1>U_BIRD Driver</h1>
+    <p>Drive • Deliver</p>
   </div>
 
-  <div class="mode-switch">
-    <button id="rideMode">Ride</button>
-    <button id="deliveryMode">Delivery</button>
+  <div class="status-section">
+    <button id="goOnlineBtn">Go Online</button>
+    <button id="goOfflineBtn">Go Offline</button>
   </div>
 
-  <div id="rideSection" class="section">
-    <h2>Request a Ride</h2>
-    <input id="pickup" placeholder="Pickup location">
-    <input id="dropoff" placeholder="Dropoff location">
-    <button id="requestRideBtn">Request Ride</button>
-  </div>
-
-  <div id="deliverySection" class="section hidden">
-    <h2>Order Food</h2>
-    <div id="restaurantList"></div>
+  <div id="requestSection" class="hidden">
+    <h2>Incoming Request</h2>
+    <p id="requestInfo"></p>
+    <button id="acceptBtn">Accept</button>
   </div>
 
   <script src="app.js"></script>

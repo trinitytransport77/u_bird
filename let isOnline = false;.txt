@@ -1,0 +1,39 @@
+let isOnline = false;
+
+// Go online
+document.getElementById("goOnlineBtn").onclick = () => {
+  isOnline = true;
+  alert("You are now ONLINE");
+};
+
+// Go offline
+document.getElementById("goOfflineBtn").onclick = () => {
+  isOnline = false;
+  alert("You are now OFFLINE");
+};
+
+// Simulate incoming request
+setInterval(() => {
+  if (isOnline) {
+    showRequest({
+      type: "ride",
+      pickup: "Main St",
+      dropoff: "River St"
+    });
+  }
+}, 15000);
+
+function showRequest(req) {
+  document.getElementById("requestSection").classList.remove("hidden");
+  document.getElementById("requestInfo").innerText =
+    req.type.toUpperCase() +
+    " REQUEST\nPickup: " +
+    req.pickup +
+    "\nDropoff: " +
+    req.dropoff;
+}
+
+document.getElementById("acceptBtn").onclick = () => {
+  alert("Request accepted!");
+  document.getElementById("requestSection").classList.add("hidden");
+};
