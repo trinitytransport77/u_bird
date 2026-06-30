@@ -1,0 +1,63 @@
+let drivers = [];
+let rides = [];
+let deliveries = [];
+
+// Simulate incoming data every 10 seconds
+setInterval(() => {
+  drivers = [
+    { id: "d1", name: "Driver One", status: "available" },
+    { id: "d2", name: "Driver Two", status: "busy" }
+  ];
+
+  rides = [
+    { id: "r1", pickup: "Main St", dropoff: "River St" }
+  ];
+
+  deliveries = [
+    { id: "del1", restaurant: "City Pizza", dropoff: "Pine St" }
+  ];
+
+  updateUI();
+}, 10000);
+
+function updateUI() {
+  const driverList = document.getElementById("driverList");
+  const rideList = document.getElementById("rideList");
+  const deliveryList = document.getElementById("deliveryList");
+
+  driverList.innerHTML = "";
+  rideList.innerHTML = "";
+  deliveryList.innerHTML = "";
+
+  drivers.forEach(d => {
+    const item = document.createElement("div");
+    item.className = "item";
+    item.innerHTML = `
+      <strong>${d.name}</strong><br>
+      Status: ${d.status}
+    `;
+    driverList.appendChild(item);
+  });
+
+  rides.forEach(r => {
+    const item = document.createElement("div");
+    item.className = "item";
+    item.innerHTML = `
+      <strong>Ride ${r.id}</strong><br>
+      Pickup: ${r.pickup}<br>
+      Dropoff: ${r.dropoff}
+    `;
+    rideList.appendChild(item);
+  });
+
+  deliveries.forEach(d => {
+    const item = document.createElement("div");
+    item.className = "item";
+    item.innerHTML = `
+      <strong>Delivery ${d.id}</strong><br>
+      Restaurant: ${d.restaurant}<br>
+      Dropoff: ${d.dropoff}
+    `;
+    deliveryList.appendChild(item);
+  });
+}

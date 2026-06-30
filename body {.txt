@@ -11,25 +11,26 @@ body {
   text-align: center;
 }
 
-.status-section {
+.grid {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin: 20px;
 }
 
-.status-section button {
-  padding: 10px 20px;
-  margin: 0 10px;
-  font-size: 16px;
-}
-
-.hidden {
-  display: none;
-}
-
-#requestSection {
+.panel {
   background: #fff;
   padding: 20px;
-  margin: 20px;
+  width: 30%;
   border-radius: 8px;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
+.item {
+  background: #eee;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
 }

@@ -1,25 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>U_BIRD Driver App</title>
+  <title>U_BIRD Dispatch Console</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="header">
-    <h1>U_BIRD Driver</h1>
-    <p>Drive • Deliver</p>
+    <h1>U_BIRD Dispatch Console</h1>
+    <p>Monitor • Assign • Control</p>
   </div>
 
-  <div class="status-section">
-    <button id="goOnlineBtn">Go Online</button>
-    <button id="goOfflineBtn">Go Offline</button>
-  </div>
+  <div class="grid">
+    <div class="panel">
+      <h2>Drivers</h2>
+      <div id="driverList"></div>
+    </div>
 
-  <div id="requestSection" class="hidden">
-    <h2>Incoming Request</h2>
-    <p id="requestInfo"></p>
-    <button id="acceptBtn">Accept</button>
+    <div class="panel">
+      <h2>Ride Requests</h2>
+      <div id="rideList"></div>
+    </div>
+
+    <div class="panel">
+      <h2>Delivery Requests</h2>
+      <div id="deliveryList"></div>
+    </div>
   </div>
 
   <script src="app.js"></script>
